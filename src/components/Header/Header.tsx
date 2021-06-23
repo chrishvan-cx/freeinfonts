@@ -1,11 +1,10 @@
-
-import './style/style.css';
-import { Header, Home, News } from './components';
+import useClock from '../../hooks/useClock'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
+    BrowserRouter as Router,
+    Link
 } from "react-router-dom";
+
+
 import i18n from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
@@ -27,7 +26,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     detection:{
       order:['cookie','htmlTag','localStorage','path','subdomain'],
       caches:['cookie']
@@ -41,24 +40,38 @@ i18n
     react:{useSuspense:false}
   });
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <div className="Header">
-          <Header />
+
+function Header() {
+
+    const { time } = useClock();
+    const {t} = useTranslation()
+
+    return (
+        <div className="Header_container">
+            <div className="DateTime">{time}</div>
+            <div className="Navigation">
+               
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/News">News</Link>
+                    </li>
+                </ul>
+              
+                <div>{t('hello')}</div>
+      <div onClick={()=>i18n.changeLanguage('en')}>en</div>
+      <div onClick={()=>i18n.changeLanguage('vn')}>vn</div>
+            </div>
+            <div className="Right_menu">
+                <div>Theme</div>
+                <div>Language</div>
+                <div>SignIn</div>
+            </div>
+
         </div>
-
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/News" component={News}/>
-        </Switch>
-
-
-
-      </div>
-    </Router>
-  );
+    )
 }
 
-export default App;
+export default Header

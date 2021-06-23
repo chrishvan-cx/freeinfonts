@@ -1,0 +1,40 @@
+.News_Container{
+    width: 100%;
+    max-width: 1170px;
+    min-height: 100vh;
+    margin:0 auto;
+    & .News_Title{
+        text-align: center;
+        margin: 10px 0;
+        & input{
+            padding: 5px;
+            margin-right: 10px;
+        }
+    }
+    & .News_container{
+        width: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        & .News_Box{
+            background: #eee;
+            width: calc(33% - 20px);
+            margin: 10px;
+            text-align: left;
+            padding: 5px;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            & .News_Bottom{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+    
+}

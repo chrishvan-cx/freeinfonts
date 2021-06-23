@@ -1,0 +1,95 @@
+@import 'Header.scss';
+@import 'globe.scss';
+@import 'News.scss';
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.Header{
+    width: 100%;
+    padding: 0 5px;
+    background-color: #9fc5d0;
+}
+.Home_Container{
+    width: 100%;
+    max-width: 1170px;
+    min-height: 100vh;
+    margin:0 auto;
+    & .Fonts_Title{
+        text-align: center;
+        margin: 10px 0;
+        & input{
+            padding: 5px;
+            margin-right: 10px;
+        }
+    }
+    & .Fonts_container{
+        width: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        & .Fonts_Box{
+            background: #eee;
+            width: calc(25% - 10px);
+            margin: 3px;
+            text-align: center;
+            padding: 5px;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+    
+            &_Icon {
+                height: 65px;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                & span{
+                    font-size: 32px;
+                }
+            }
+            & pre{
+                font-family: monospace;
+                background: #000;
+                color: #fff;
+                padding: 3px 0;
+                font-size: 11px;
+                cursor: copy;
+            }
+            &:before{
+                content: "Click to copy";
+                clear: both;
+                display: block;
+                top: 0;
+                right: 0;
+                font-size: 11px;
+                position: absolute;
+                background: #202020;
+                color: #fff;
+                padding: 0 5px;
+                letter-spacing: .098em;
+                -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+                -webkit-transition: .3s ease-in-out;
+                transition: .3s ease-in-out;
+            }
+            &:hover:before{
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+    }
+    
+}

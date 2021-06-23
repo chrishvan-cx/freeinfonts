@@ -6,9 +6,23 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.4",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "axios": "^0.21.1",
+    "i18next": "^20.3.2",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "i18next-http-backend": "^1.2.6",
     "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
+    "react-i18next": "^11.11.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
+    "sass": "^1.35.1",
+    "typescript": "^4.3.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -34,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-copy-to-clipboard": "^5.0.0",
+    "@types/react-router-dom": "^5.1.7"
   }
 }

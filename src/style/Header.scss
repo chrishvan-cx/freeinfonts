@@ -1,0 +1,24 @@
+.Header_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    & .DateTime{
+        flex-basis: 25%;
+        text-align: left;
+    }
+    & .Navigation{
+        flex-basis: 50%;
+        & ul li{
+            list-style: none;
+            display: inline-block;
+            margin:0 20px;
+            
+        }
+    }
+    & .Right_menu{
+        flex-basis: 25%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
