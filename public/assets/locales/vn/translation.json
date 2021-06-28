@@ -1,4 +1,8 @@
 {
-    "hello": "Xin Chao",
-    "search":"Tim Kiem"
+    "home": "TrangChu",
+    "news": "TinTuc",
+    "login": "DangNhap",
+    "register": "DangKy",
+    "logout": "Thoat",
+    "search":"TimKiem"
 }

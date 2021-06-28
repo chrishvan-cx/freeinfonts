@@ -1,4 +1,4 @@
-import React, {  useEffect, useRef, useState } from 'react'
+import {  useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
@@ -6,11 +6,8 @@ import {  useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function Home() {
-
     const [fonts, setFonts] = useState(null);
-    const [textCopied, setTextCopied] = useState("copy");
     const [search, setSearch] = useState("");
     const iconRef = useRef();
     const {t} = useTranslation()
@@ -35,8 +32,6 @@ function Home() {
             });
 
     }, [])
-
-
 
     //Searh
     let fonts1
@@ -105,7 +100,7 @@ function Home() {
                         placeholder={t('search')}
                         value={search}
                         onChange={handleSearch} />
-                    Search</label>
+                    </label>
             </div>
             <div className="Fonts_container">
                 {fontRender}

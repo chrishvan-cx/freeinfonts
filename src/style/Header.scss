@@ -1,14 +1,21 @@
+.App.dark{
+    & .Theme_Slect p{
+        color:white;
+    }
+}
 .Header_container{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
+    padding: 5px 10px;
     & .DateTime{
         flex-basis: 25%;
         text-align: left;
     }
     & .Navigation{
-        flex-basis: 50%;
+        flex-basis: 25%;
         & ul li{
             list-style: none;
             display: inline-block;
@@ -19,6 +26,89 @@
     & .Right_menu{
         flex-basis: 25%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        align-items: center;
+        & .Theme_Slect{
+            position: relative;
+        }
+        & .Language_Wrapper{
+            position: relative;
+            width: 25px;
+            height: auto;
+            margin: 0 10px;
+            & .current_flag{
+                width:25px;
+            }
+            &:hover ul{
+                display: block;
+            }
+            & ul {
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 0;
+                background: gainsboro;
+                padding: 5px;
+                & li{
+                    list-style: none;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+                    & span{
+                        margin-right: 10px;
+                    }
+                    & img{
+                        width: 25px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        & .Account_Wrapper{
+
+            display: flex;
+            & .SignIn_Wrapper{
+                position: relative;
+                margin-left: 10px;
+                & .formBox{
+                    display: none;
+                    height: 0;
+                    padding: 10px;
+                    background-color: green;
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 99;
+                    &.active{
+                        display: block;
+                        height: auto;
+                    }
+                }
+            }
+            
+            & .SignUp_Wrapper{
+                position: relative;
+                margin-left: 10px;
+                & .formBox{
+                    display: none;
+                    height: 0;
+                    padding: 10px;
+                    background-color: green;
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 99;
+                    &.active{
+                        display: block;
+                        height: auto;
+                    }
+                }
+            }
+        }
+       
     }
+    
 }

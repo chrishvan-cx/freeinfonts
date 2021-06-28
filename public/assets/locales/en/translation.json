@@ -1,4 +1,8 @@
 {
-    "hello": "Hello",
+    "home": "Hello",
+    "news": "News",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
     "search":"Search"
 }

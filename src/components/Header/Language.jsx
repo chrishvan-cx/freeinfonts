@@ -1,16 +1,9 @@
-import useClock from '../../hooks/useClock'
-import {
-    BrowserRouter as Router,
-    Link
-} from "react-router-dom";
-
-
 import i18n from 'i18next';
-import { initReactI18next, useTranslation } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-
+import cookies from 'js-cookie';
 
 i18n
   // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
@@ -41,37 +34,42 @@ i18n
   });
 
 
-function Header() {
 
-    const { time } = useClock();
-    const {t} = useTranslation()
-
+function Language() {
+  
+    
+    const listLang = [
+      {
+        code: 'en',
+        name:'english'
+      },
+      {
+        code: 'vn',
+        name:'VietNam'
+      },
+      {
+        code: 'cn',
+        name:'Chinese'
+      },
+      {
+        code: 'th',
+        name:'Thailand'
+      }];
+    let currentLangCode = cookies.get("i18next") || 'en';
     return (
-        <div className="Header_container">
-            <div className="DateTime">{time}</div>
-            <div className="Navigation">
-               
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/News">News</Link>
-                    </li>
-                </ul>
-              
-                <div>{t('hello')}</div>
-      <div onClick={()=>i18n.changeLanguage('en')}>en</div>
-      <div onClick={()=>i18n.changeLanguage('vn')}>vn</div>
-            </div>
-            <div className="Right_menu">
-                <div>Theme</div>
-                <div>Language</div>
-                <div>SignIn</div>
-            </div>
-
-        </div>
+        <>
+         <div className="current_flag"> <img src={`https://cdn.hanwei1234.com/Content/images/${currentLangCode}.svg`} alt="" /></div>
+         <ul>
+         {listLang.map((lang,index) =>{
+           let togleHide = lang.code === currentLangCode ? "none" : "";
+             return <li key={index} style={{display:togleHide}}>
+                <span>{lang.name}</span>
+                <img onClick={()=>i18n.changeLanguage(lang.code)} src={`https://cdn.hanwei1234.com/Content/images/${lang.code}.svg`} alt="" />
+                </li>
+         })}
+         </ul>
+        </>
     )
 }
 
-export default Header
+export default Language

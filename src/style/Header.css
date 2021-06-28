@@ -7,6 +7,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: center;
+  padding: 5px 10px;
 }
 
 .Header_container .DateTime {
@@ -16,8 +17,8 @@
 }
 
 .Header_container .Navigation {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
 }
 
 .Header_container .Navigation ul li {
@@ -32,8 +33,104 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.Header_container .Right_menu .Language_Wrapper {
+  position: relative;
+  width: 25px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.Header_container .Right_menu .Language_Wrapper .current_flag {
+  width: 25px;
+}
+
+.Header_container .Right_menu .Language_Wrapper:hover ul {
+  display: block;
+}
+
+.Header_container .Right_menu .Language_Wrapper ul {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: 0;
+  background: gainsboro;
+  padding: 5px;
+}
+
+.Header_container .Right_menu .Language_Wrapper ul li {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.Header_container .Right_menu .Language_Wrapper ul li span {
+  margin-right: 10px;
+}
+
+.Header_container .Right_menu .Language_Wrapper ul li img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.Header_container .Right_menu .Account_Wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper {
+  position: relative;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper .formBox {
+  display: none;
+  height: 0;
+  padding: 10px;
+  background-color: green;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 99;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper .formBox.active {
+  display: block;
+  height: auto;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper {
+  position: relative;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper .formBox {
+  display: none;
+  height: 0;
+  padding: 10px;
+  background-color: green;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 99;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper .formBox.active {
+  display: block;
+  height: auto;
 }
 /*# sourceMappingURL=Header.css.map */
