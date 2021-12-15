@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://resources.agentimage.com/fonts/agentimage.woff2?date=27042021) format("woff2");
+  src: url(../agentimage.woff2) format("woff2");
 }
 
 .ai-active-rain,

@@ -1,6 +1,7 @@
 {
     "home": "TrangChu",
     "news": "TinTuc",
+    "fonts": "fonts",
     "login": "DangNhap",
     "register": "DangKy",
     "logout": "Thoat",

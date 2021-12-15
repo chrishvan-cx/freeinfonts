@@ -41,7 +41,7 @@ function Language() {
     const listLang = [
       {
         code: 'en',
-        name:'english'
+        name:'English'
       },
       {
         code: 'vn',

@@ -1,0 +1,17 @@
+@mixin animations($values, $prefixes) {
+    animation: $values;
+    @each $prefix in $prefixes {
+        -#{$prefix}-animation: $values;
+    }
+}
+
+@keyframes letFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateX(0px);
+    }
+}

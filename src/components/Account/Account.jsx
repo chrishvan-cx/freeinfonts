@@ -28,7 +28,6 @@ function Account() {
         }
         // const store = JSON.parse(localStorage.getItem('acc'));
         // const cook = JSON.parse(Cookies.get('account'));
-
         // console.log( "state",typeof state , state)
 
         function eventClick(e) {
@@ -92,51 +91,53 @@ function Account() {
             default: break;
         }
     }
-
-   
-   
-
+    
     return (
         <>
+        <div style={{display:"none"}}>{state}</div>
             {logStatus === true ?
                 <div className="Logout" >
-                    <a href="" >Hello {member ? member.username : ""} </a>
-                    <button style={{marginLeft : "10px"}} onClick={() => handleLogOut()}>LogOut</button>
+                    <a href="/#">Hi {member ? member.username : ""} </a>
+                    <div className='logout-btn'>
+                        <button style={{marginLeft : "10px"}} onClick={() => handleLogOut()}>LogOut</button>
+                    </div>
                 </div> :
                 <>
                     <div ref={detectedRefs1} className="SignIn_Wrapper">
-                        <button onClick={() => handleToggleForm(1)}>SignIn</button>
+                        <button className='btn-signin' onClick={() => handleToggleForm(1)}>SignIn</button>
                         <div className={active === 1 ? "formBox active" : "formBox"}>
                             <form action="">
                                 <label htmlFor="email">
-                                    <p>Email:</p>
-                                    <input type="text" placeholder="emial" ref={userRef2} />
+                                    <span>Email:</span>
+                                    <input type="text" placeholder="Email" ref={userRef2} />
                                 </label>
                                 <label htmlFor="password">
-                                    <p>Password:</p>
-                                    <input type="password" placeholder="password" ref={passRef2} />
+                                    <span>Password:</span>
+                                    <input type="password" placeholder="Password" ref={passRef2} />
                                 </label>
                                 <br />
-                                <p></p>
+                                <div className='btn-submit'>
                                 <button type='submit' onClick={handleLogin}>Login</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                     <div ref={detectedRefs2} className="SignUp_Wrapper">
-                        <button onClick={() => handleToggleForm(2)}>SingUp</button>
+                        <button className='btn-signup' onClick={() => handleToggleForm(2)}>SingUp</button>
                         <div className={active === 2 ? "formBox active" : "formBox"}>
                             <form action="">
                                 <label htmlFor="email">
-                                    <p>Email:</p>
-                                    <input type="text" placeholder="emial" ref={userRef} />
+                                    <span>Email:</span>
+                                    <input type="text" placeholder="Email" ref={userRef} />
                                 </label>
                                 <label htmlFor="password">
-                                    <p>Password:</p>
-                                    <input type="password" placeholder="password" ref={passRef} />
+                                    <span>Password:</span>
+                                    <input type="password" placeholder="Password" ref={passRef} />
                                 </label>
                                 <br />
-                                <p></p>
+                                <div className='btn-submit'>
                                 <button type='submit' onClick={handleRegister}>SignUp</button>
+                                </div>
                             </form>
                         </div>
                     </div>

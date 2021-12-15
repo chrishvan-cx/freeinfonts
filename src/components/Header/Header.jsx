@@ -1,49 +1,70 @@
-import { memo, useState, useEffect } from 'react';
+import { memo, useState} from 'react';
 import useClock from '../../hooks/useClock'
 import Account from '../Account/Account';
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 import Language from './Language';
-import Cookies from 'js-cookie';
 
 
 
-function Header({selectTheme}) {
-    const [theme, setTheme] = useState()
+function Header({ themeFromHeader }) {
+    const [theme, setTheme] = useState();
+    const [sideBar, setSideBar] = useState();
+
     const { time } = useClock();
     const { t } = useTranslation()
 
-    useEffect(() => {
-        setTheme(localStorage.getItem("themeMode"));
-    }, [selectTheme])
-    
-    // function handleSetTheme(theme) {
-    //     selectTheme(theme);
-    // }
+    function handleSetTheme(theme) {
+        localStorage.setItem("themeMode", theme)
+        setTheme(theme);
+        themeFromHeader(theme);
+    }
+
+    function handleOpenSideBar() {
+        setSideBar(!sideBar)
+    }
+
     return (
         <div className="Header_container">
-            <div className="DateTime">{time}</div>
-            <div className="Navigation">
+            <div className={`mobile-burger show-onMobile ${sideBar ? "close-bger" : ""}`} onClick={handleOpenSideBar}>
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+            <div className="DateTime show-onDesktop">
+                <i className="ai-calendar" style={{ marginRight: "5px" }}></i>
+                {time}
+            </div>
+            <div className={`Navigation ${sideBar ? "show" : "hide"}`} >
 
                 <ul>
-                    <li>
-                        <Link to="/">{t("home")}</Link>
+                    <li className='show-onMobile'>
+                        <div className="DateTime">
+                            <i className="ai-calendar" style={{ marginRight: "5px" }}></i>
+                            {time}
+                        </div>
                     </li>
                     <li>
-                        <Link to="/News">{t("news")}</Link>
+                        <NavLink exact to="/" activeClassName='active'><i className="ai-house"></i>{t("fonts")}</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/News" activeClassName='active'><i className="ai-world-o"></i>{t("news")}</NavLink>
                     </li>
                 </ul>
 
-
+                {/* <div className='modal-cover' onClick={() => setSideBar(false)}></div> */}
             </div>
             <div className="Right_menu">
-                <div className="Theme_Slect">{theme === "dark"? 
-                <p onClick={()=>selectTheme("light")}>Dark</p>
-                :
-                <p onClick={()=>selectTheme("dark")}>Light</p>
-                }
-               
+                <div className="Theme_Slect">
+                    <div className="switch-btns">
+                        <div className={`switch-case ${theme === "dark" ? "dark" : "light"}`}>
+                            <div onClick={() => handleSetTheme("dark")}>ON</div>
+                            <div onClick={() => handleSetTheme("light")}>OFF</div>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div className="Language_Wrapper"><Language /></div>
                 <div className="Account_Wrapper">

@@ -1,6 +1,7 @@
 {
     "home": "Hello",
     "news": "News",
+    "fonts": "fonts",
     "login": "Login",
     "register": "Register",
     "logout": "Logout",

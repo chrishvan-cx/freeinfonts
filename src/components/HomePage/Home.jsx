@@ -61,7 +61,7 @@ function Home() {
     let fontRender;
     if (fonts1 && fonts1.length > 0) {
         fontRender = fonts1.map((font, index) => {
-            let tag = `<i class="${font}"></i>`
+            let tag = `<i className="${font}"></i>`
             return <CopyToClipboard key={index} text={tag} options={{asHtml: true}} >
              <div  className="Fonts_Box" onClick={()=>showNotice(tag)}>
                 <div className="Fonts_Box_Icon">
@@ -93,14 +93,20 @@ function Home() {
             <ToastContainer />
             <div className="Fonts_Title">
                 <h1>YRB Fonts Icons</h1>
-                <label htmlFor="">
+                <div className="Search-bar">
+                <label htmlFor="search">
                     <input
                         type="text"
                         name="search"
                         placeholder={t('search')}
                         value={search}
                         onChange={handleSearch} />
+                        <span className='search-icon'>
+                        <i className="ai-magnifying-glass-a"></i>
+                        </span>
                     </label>
+                </div>
+                
             </div>
             <div className="Fonts_container">
                 {fontRender}

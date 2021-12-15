@@ -1,24 +1,152 @@
+@-webkit-keyframes letFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes letFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+.App#dark .Theme_Slect p {
+  color: white;
+}
+
+.App#dark .switch-case {
+  background-color: black;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.App#dark .Header_container,
+.App#dark .Home_Container .Fonts_Title h1,
+.App#dark .Home_Container .Fonts_Title .Search-bar i {
+  color: white;
+}
+
+.App#dark .Header_container .Right_menu .Language_Wrapper ul li span {
+  color: #333;
+}
+
+.App#dark ul li a {
+  color: white;
+}
+
+.App#dark ul li a:hover, .App#dark ul li a.active {
+  color: #f9ffc3;
+  text-shadow: 0 0 5px #fee71b, 0 0 5px #fee71b, 0 0 2px #fee71b;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.App#dark form span {
+  color: #333;
+}
+
+.App#dark .Navigation ul {
+  background-color: #011a20;
+}
+
+.App#dark .mobile-burger span {
+  background-color: #ffffff;
+}
+
 .Header_container {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
-  padding: 5px 10px;
+  padding: 15px 10px;
 }
 
 .Header_container .DateTime {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .Header_container .DateTime {
+    text-align: center;
+  }
 }
 
 .Header_container .Navigation {
+  position: relative;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
+}
+
+.Header_container .Navigation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .Header_container .Navigation ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    max-width: 250px;
+    width: 250px;
+    height: 100%;
+    top: 53px;
+    left: 0px;
+    background-color: #eeeeee;
+    z-index: 995;
+    -webkit-transition: -webkit-transform 300ms ease;
+    transition: -webkit-transform 300ms ease;
+    transition: transform 300ms ease;
+    transition: transform 300ms ease, -webkit-transform 300ms ease;
+  }
 }
 
 .Header_container .Navigation ul li {
@@ -27,31 +155,143 @@
   margin: 0 20px;
 }
 
+.Header_container .Navigation ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+}
+
+.Header_container .Navigation ul li a:hover, .Header_container .Navigation ul li a.active {
+  color: #ffffff;
+  text-shadow: 0 0 3px #00c21a, 0 0 4px #00c21a, 0 0 5px #00c21a;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.Header_container .Navigation ul li a i {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .Header_container .Navigation.hide ul {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    padding: 20px 0px;
+  }
+  .Header_container .Navigation.hide ul li {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    opacity: 0;
+  }
+  .Header_container .Navigation.hide ul li.show-onMobile {
+    position: absolute;
+    top: 0;
+  }
+  .Header_container .Navigation.show ul {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    padding: 20px 0px;
+  }
+  .Header_container .Navigation.show ul li {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    opacity: 0;
+  }
+  .Header_container .Navigation.show ul li.show-onMobile {
+    position: absolute;
+    top: 0;
+  }
+}
+
 .Header_container .Right_menu {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99;
+}
+
+@media screen and (max-width: 768px) {
+  .Header_container .Right_menu {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+.Header_container .Right_menu .Theme_Slect {
+  position: relative;
+}
+
+.Header_container .Right_menu .Theme_Slect .switch-btns {
+  width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.Header_container .Right_menu .Theme_Slect .switch-btns .switch-case {
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.Header_container .Right_menu .Theme_Slect .switch-btns .switch-case div:first-child {
+  width: 50px;
+  border-radius: 5px;
+  color: white;
+  background-color: #00eb00;
+  -webkit-box-shadow: inset 0 0 5px 2px white;
+          box-shadow: inset 0 0 5px 2px white;
+}
+
+.Header_container .Right_menu .Theme_Slect .switch-btns .switch-case div:last-child {
+  width: 50px;
+  border-radius: 5px;
+  background-color: red;
+  -webkit-box-shadow: inset 0 0 5px 2px #011a20;
+          box-shadow: inset 0 0 5px 2px #011a20;
 }
 
 .Header_container .Right_menu .Language_Wrapper {
   position: relative;
-  width: 100px;
+  width: 20px;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  margin: 0 10px;
 }
 
 .Header_container .Right_menu .Language_Wrapper .current_flag {
-  width: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .Header_container .Right_menu .Language_Wrapper:hover ul {
@@ -61,10 +301,13 @@
 .Header_container .Right_menu .Language_Wrapper ul {
   display: none;
   position: absolute;
-  top: 16px;
+  top: 4px;
   right: 0;
   background: gainsboro;
   padding: 5px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 5px #999999;
+          box-shadow: 0 0 5px #999999;
 }
 
 .Header_container .Right_menu .Language_Wrapper ul li {
@@ -85,46 +328,154 @@
 }
 
 .Header_container .Right_menu .Language_Wrapper ul li img {
-  width: 25px;
+  width: 20px;
   cursor: pointer;
 }
 
-.Header_container .Right_menu .SignIn_Wrapper {
+.Header_container .Right_menu .Account_Wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper,
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper {
+  position: relative;
+  margin-left: 10px;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper button,
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper button {
+  cursor: pointer;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper .formBox,
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper .formBox {
+  display: none;
+  text-align: left;
+  height: 0;
+  padding: 10px;
+  background-color: #eeeeee;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 99;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper .formBox.active,
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper .formBox.active {
+  display: block;
+  height: auto;
+  border: thin solid #b5b5b5;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 4px #b9b9b9;
+          box-shadow: 0 0 4px #b9b9b9;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper .formBox input,
+.Header_container .Right_menu .Account_Wrapper .SignUp_Wrapper .formBox input {
+  padding: 3px 5px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.Header_container .Right_menu .Account_Wrapper .SignIn_Wrapper .formBox {
+  right: -70px;
+}
+
+.Header_container .Right_menu .Account_Wrapper .btn-submit {
+  width: 100%;
+  text-align: center;
+}
+
+.show-onDesktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .show-onDesktop {
+    display: none;
+  }
+}
+
+.show-onMobile {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .show-onMobile {
+    display: block !important;
+  }
+}
+
+.Logout {
   position: relative;
 }
 
-.Header_container .Right_menu .SignIn_Wrapper .formBox {
+.Logout .logout-btn {
   display: none;
-  height: 0;
-  padding: 10px;
-  background-color: green;
   position: absolute;
-  top: 60px;
+  top: 0%;
   right: 0;
+  width: 120px;
+  height: 70px;
+  border-radius: 5px;
 }
 
-.Header_container .Right_menu .SignIn_Wrapper .formBox.active {
+.Logout:hover .logout-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mobile-burger span {
   display: block;
-  height: auto;
+  width: 25px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 2px 0;
+  background-color: #333;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
-.Header_container .Right_menu .SignUp_Wrapper {
-  position: relative;
+.close-bger.mobile-burger span:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(2px, 6px);
+          transform: rotate(45deg) translate(2px, 6px);
 }
 
-.Header_container .Right_menu .SignUp_Wrapper .formBox {
-  display: none;
-  height: 0;
-  padding: 10px;
-  background-color: green;
-  position: absolute;
-  top: 60px;
-  right: 0;
+.close-bger.mobile-burger span:nth-child(2) {
+  opacity: 0;
 }
 
-.Header_container .Right_menu .SignUp_Wrapper .formBox.active {
-  display: block;
-  height: auto;
+.close-bger.mobile-burger span:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(2px, -6px);
+          transform: rotate(-45deg) translate(2px, -6px);
+}
+
+.Header_container .Navigation.show ul li:nth-child(1) {
+  animation: letFadeIn 300ms ease 0ms forwards;
+  -webkit-animation: letFadeIn 300ms ease 0ms forwards;
+}
+
+.Header_container .Navigation.show ul li:nth-child(2) {
+  animation: letFadeIn 300ms ease 350ms forwards;
+  -webkit-animation: letFadeIn 300ms ease 350ms forwards;
+}
+
+.Header_container .Navigation.show ul li:nth-child(3) {
+  animation: letFadeIn 300ms ease 450ms forwards;
+  -webkit-animation: letFadeIn 300ms ease 450ms forwards;
 }
 
 @font-face {
@@ -132,7 +483,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://resources.agentimage.com/fonts/agentimage.woff2?date=27042021) format("woff2");
+  src: url(../agentimage.woff2) format("woff2");
 }
 
 .ai-active-rain,
@@ -1542,6 +1893,7 @@
 }
 
 .News_Container .News_container .News_Box {
+  position: relative;
   background: #eee;
   width: calc(33% - 20px);
   margin: 10px;
@@ -1559,13 +1911,48 @@
   cursor: pointer;
 }
 
+.News_Container .News_container .News_Box p {
+  margin-bottom: 45px;
+}
+
 .News_Container .News_container .News_Box .News_Bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 10px;
+}
+
+.News_Container .News_container .News_Box .News_Bottom a {
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .News_Container .News_container .News_Box {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .News_Container .News_container .News_Box {
+    width: calc(100% - 20px);
+  }
 }
 
 * {
@@ -1575,14 +1962,29 @@
 
 body {
   background-color: #fff;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.App#dark {
+  background-color: #01222b;
+}
+
+.App#dark .Header {
+  background-color: #011a20;
 }
 
 .Header {
   width: 100%;
   padding: 0 5px;
-  background-color: #9fc5d0;
+  background-color: #eeeeee;
+  -webkit-box-shadow: 0 0 5px #b9b9b9;
+          box-shadow: 0 0 5px #b9b9b9;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .Home_Container {
@@ -1590,6 +1992,7 @@ body {
   max-width: 1170px;
   min-height: 100vh;
   margin: 0 auto;
+  padding: 0 6px;
 }
 
 .Home_Container .Fonts_Title {
@@ -1597,9 +2000,60 @@ body {
   margin: 10px 0;
 }
 
+.Home_Container .Fonts_Title h1 {
+  margin: 0 0 15px;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .Home_Container .Fonts_Title h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.Home_Container .Fonts_Title label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Home_Container .Fonts_Title .Search-bar {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.Home_Container .Fonts_Title .Search-bar i {
+  font-size: 24px;
+  color: #202;
+}
+
+.Home_Container .Fonts_Title .search-icon {
+  border: thin solid #ccc;
+  border-radius: 0 5px 5px 0;
+  height: 33px;
+  padding: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .Home_Container .Fonts_Title input {
+  position: relative;
+  z-index: 1;
+  border: thin solid #ccc;
+  border-right: none;
+  width: 100%;
+  font-size: 18px;
+  outline: none;
   padding: 5px;
-  margin-right: 10px;
+  border-radius: 5px 0 0 5px;
 }
 
 .Home_Container .Fonts_container {
@@ -1609,6 +2063,9 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Home_Container .Fonts_container .Fonts_Box {
@@ -1666,15 +2123,27 @@ body {
   background: #202020;
   color: #fff;
   padding: 0 5px;
-  letter-spacing: .098em;
+  letter-spacing: 0.098em;
   -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .Home_Container .Fonts_container .Fonts_Box:hover:before {
   -webkit-transform: translateY(0);
   transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+  .Home_Container .Fonts_container .Fonts_Box {
+    width: calc(33% - 10px);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .Home_Container .Fonts_container .Fonts_Box {
+    width: calc(50% - 10px);
+  }
 }
 /*# sourceMappingURL=style.css.map */
