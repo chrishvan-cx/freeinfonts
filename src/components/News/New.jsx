@@ -9,27 +9,30 @@ function New() {
 
     useEffect(() => {
             if(newsdata === null){
-                const APIKEY = process.env.REACT_APP_MY_APIKEY;
-                function timeFomat1(now) {
-                    let day = `0${now.getDate()}`.slice(-2);
-                    let month = `0${now.getMonth() + 1}`.slice(-2);
-                    let year = `${now.getFullYear()}`
-                    return `${year}-${month}-${day - 2}`
-                }
-                function timeFomat2(now) {
-                    let day = `0${now.getDate()}`.slice(-2);
-                    let month = `0${now.getMonth() + 1}`.slice(-2);
-                    let year = `${now.getFullYear()}`
-                    return `${year}-${month}-${day}`
-                }
-                let fromDay = timeFomat1(new Date());
-                let toDay = timeFomat2(new Date());
+                // const APIKEY = process.env.REACT_APP_MY_APIKEY;
+                // function timeFomat1(now) {
+                //     let day = `0${now.getDate()}`.slice(-2);
+                //     let month = `0${now.getMonth() + 1}`.slice(-2);
+                //     let year = `${now.getFullYear()}`
+                //     return `${year}-${month}-${day - 2}`
+                // }
+                // function timeFomat2(now) {
+                //     let day = `0${now.getDate()}`.slice(-2);
+                //     let month = `0${now.getMonth() + 1}`.slice(-2);
+                //     let year = `${now.getFullYear()}`
+                //     return `${year}-${month}-${day}`
+                // }
+                // let fromDay = timeFomat1(new Date());
+                // let toDay = timeFomat2(new Date());
+                // https://stackoverflow.com/questions/62232828/uncaught-in-promise-error-request-failed-with-status-code-426-in-react-app-ne
+                // let apiNews = `https://newsapi.org/v2/everything?q=apple&from=${fromDay}&to=${toDay}&sortBy=popularity&apiKey=${APIKEY}`;
                 axios({
                     method: 'get',
-                    url: `https://newsapi.org/v2/everything?q=apple&from=${fromDay}&to=${toDay}&sortBy=popularity&apiKey=${APIKEY}`,
+                    url: `https://61ba98d748df2f0017e5ab32.mockapi.io/api/test-news/v1/news-testing`,
                 })
+               
                     .then(function (response) {
-                        setNewsdata(response.data.articles) ;
+                        setNewsdata(response.data[0].articles) ;
                     });
             }
     })
